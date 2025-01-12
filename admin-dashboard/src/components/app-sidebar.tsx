@@ -25,8 +25,8 @@ import { NavSecondary } from './nav-secondary';
 
 const data = {
 	user: {
-		name: 'shadcn',
-		email: 'm@example.com',
+		name: 'jdoe',
+		email: 'jdoe@example.com',
 		avatar: '/avatars/shadcn.jpg',
 	},
 	navMain: [
@@ -116,7 +116,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				<SidebarMenu>
 					<SidebarMenuItem>
 						<SidebarMenuButton size='lg' asChild>
-							<a href='#'>
+							<a href='/'>
 								<div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
 									<Command className='size-4' />
 								</div>

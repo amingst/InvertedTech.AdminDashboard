@@ -60,7 +60,7 @@ export default function RootLayout({
 										orientation='vertical'
 										className='mr-2 h-4'
 									/>
-									<Breadcrumb>
+									{/* <Breadcrumb>
 										<BreadcrumbList>
 											<BreadcrumbItem className='hidden md:block'>
 												<BreadcrumbLink href='#'>
@@ -75,11 +75,11 @@ export default function RootLayout({
 											</BreadcrumbItem>
 										</BreadcrumbList>
 									</Breadcrumb>
-
+                  
 									<Separator
 										orientation='vertical'
 										className='mr-2 h-4'
-									/>
+									/> */}
 									<ModeToggle />
 								</div>
 							</header>
