@@ -1,9 +1,7 @@
 'use client';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
 import { Button } from '@/components/ui/button';
 import {
 	Form,
@@ -17,7 +15,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const formSchema = z.object({
+const newCategorySchema = z.object({
 	DisplayName: z
 		.string()
 		.min(3, {
@@ -31,38 +29,27 @@ const formSchema = z.object({
 		})
 		.nonempty('URL Stub Must Not Be Empty'),
 	ParentChannelId: z.string().optional(),
-	ImageAssetId: z.string().optional(),
-	YoutubeUrl: z
-		.string()
-		.url('Youtube URL must be the url of your YouTube Channel')
-		.optional(),
-	RumbleUrl: z
-		.string()
-		.url('Rumble URL must be the url of your Rumble')
-		.optional(),
 });
 
-export type NewChannel = z.infer<typeof formSchema>;
+export type NewCategory = z.infer<typeof newCategorySchema>;
 
-type NewChannelFormProps = {
-	action: (data: NewChannel) => Promise<void>;
+type NewCategoryFormProps = {
+	action: (data: NewCategory) => Promise<void>;
 };
 
-export function NewChannelForm({ action }: NewChannelFormProps) {
-	const form = useForm<NewChannel>({
-		resolver: zodResolver(formSchema),
+export function NewCategoryForm({ action }: NewCategoryFormProps) {
+	const form = useForm<NewCategory>({
+		resolver: zodResolver(newCategorySchema),
 	});
 
-	async function onSubmit(values: NewChannel) {
-		// Do something with the form values.
-		// ✅ This will be type-safe and validated.
+	async function onSubmit(values: NewCategory) {
 		await action(values);
 	}
 
 	return (
 		<Card className='w-[500px] p-5'>
 			<CardHeader>
-				<CardTitle>Create A New Channel</CardTitle>
+				<CardTitle>Create A New Category</CardTitle>
 			</CardHeader>
 			<CardContent>
 				<Form {...form}>
@@ -109,23 +96,6 @@ export function NewChannelForm({ action }: NewChannelFormProps) {
 								</FormItem>
 							)}
 						/>
-						<FormField
-							control={form.control}
-							name='ImageAssetId'
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Image Asset Id</FormLabel>
-									<FormControl>
-										<Input placeholder='id' {...field} />
-									</FormControl>
-									<FormDescription>
-										This is the asset id of your channel
-										(the icon you choose for your channel)
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
 
 						<FormField
 							control={form.control}
@@ -139,44 +109,6 @@ export function NewChannelForm({ action }: NewChannelFormProps) {
 									<FormDescription>
 										This is the parent of the channel you
 										want to add (if any)
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							control={form.control}
-							name='YoutubeUrl'
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Youtube Url</FormLabel>
-									<FormControl>
-										<Input
-											placeholder='https://youtube.com/channel'
-											{...field}
-										/>
-									</FormControl>
-									<FormDescription>
-										This is the Url of your Youtube Channel
-									</FormDescription>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							control={form.control}
-							name='RumbleUrl'
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Rumble Url</FormLabel>
-									<FormControl>
-										<Input
-											placeholder='https://rumble.com/channel'
-											{...field}
-										/>
-									</FormControl>
-									<FormDescription>
-										This is the Url of your Rumble Channel
 									</FormDescription>
 									<FormMessage />
 								</FormItem>

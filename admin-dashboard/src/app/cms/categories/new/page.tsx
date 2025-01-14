@@ -1,3 +1,11 @@
-export default async function NewCategoryPage() {
-	return <h1>New Category</h1>;
+import { NewCategoryForm } from '@/components/forms/new-category';
+import NewEntityPage from '@/components/pages/new-entity';
+
+export default function NewCategoryPage() {
+	return (
+		<NewEntityPage
+			FormComponent={NewCategoryForm}
+			apiUrl='/settings/category/create'
+		/>
+	);
 }
