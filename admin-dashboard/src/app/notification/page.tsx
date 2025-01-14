@@ -1,3 +1,11 @@
+import { SendgridOwnerSettingsForm } from '@/components/forms/sendgrid';
+import NewEntityPage from '@/components/pages/new-entity';
+
 export default function NotificationSettingsPage() {
-	return <h1>Notification Settings</h1>;
+	return (
+		<NewEntityPage
+			FormComponent={SendgridOwnerSettingsForm}
+			apiUrl='/settings/notification/owner'
+		/>
+	);
 }

@@ -98,12 +98,12 @@ const data = {
 		},
 		{
 			title: 'Comments',
-			url: '/',
+			url: '/comments',
 			icon: MessageSquareTextIcon,
 		},
 		{
 			title: 'Notification',
-			url: '/',
+			url: '/notification',
 			icon: MessageSquareDotIcon,
 		},
 	],
