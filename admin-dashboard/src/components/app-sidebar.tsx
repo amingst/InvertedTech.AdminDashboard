@@ -8,6 +8,7 @@ import {
 	MessageSquareDotIcon,
 	MessageSquareTextIcon,
 	PaintbrushVerticalIcon,
+	Users,
 } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
@@ -93,7 +94,7 @@ const data = {
 	navSecondary: [
 		{
 			title: 'Personalization',
-			url: '/',
+			url: '/personalization',
 			icon: PaintbrushVerticalIcon,
 		},
 		{
@@ -105,6 +106,11 @@ const data = {
 			title: 'Notification',
 			url: '/notification',
 			icon: MessageSquareDotIcon,
+		},
+		{
+			title: 'Users',
+			url: '/users',
+			icon: Users,
 		},
 	],
 };
