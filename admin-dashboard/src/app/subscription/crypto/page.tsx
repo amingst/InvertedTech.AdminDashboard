@@ -1,3 +1,16 @@
-export default function SubscriptionSettingsCrytoPage() {
-	return <h1>Subscription Settings Cryto Provider</h1>;
+import {
+	CryptoPublicSettingsForm,
+	CryptoPublicSettingsFormData,
+} from '@/components/forms/crypto-public';
+
+export default function SubscriptionSettingsCryptoPage() {
+	async function submitPublicSettings(data: CryptoPublicSettingsFormData) {
+		'use server';
+		console.log(data);
+	}
+	return (
+		<main>
+			<CryptoPublicSettingsForm action={submitPublicSettings} />
+		</main>
+	);
 }

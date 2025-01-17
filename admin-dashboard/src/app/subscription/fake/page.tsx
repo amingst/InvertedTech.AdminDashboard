@@ -1,3 +1,16 @@
+import {
+	FakePublicSettingsForm,
+	FakePublicSettingsFormData,
+} from '@/components/forms/fake-public';
+
 export default function SubscriptionSettingsFakePage() {
-	return <h1>Subscription Settings Fake Provider</h1>;
+	async function submitPublicSettings(data: FakePublicSettingsFormData) {
+		'use server';
+		console.log(data);
+	}
+	return (
+		<main>
+			<FakePublicSettingsForm action={submitPublicSettings} />
+		</main>
+	);
 }
