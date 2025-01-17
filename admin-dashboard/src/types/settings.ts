@@ -1,3 +1,12 @@
+export type ChannelLayoutEnum = 'List' | 'Grid' | 'Masonry';
+export type CommentOrderEnum = 'Liked' | 'Older' | 'Newest';
+export type CommentRestrictionMinimumEnum =
+	| 'Anonymous'
+	| 'Subscriber'
+	| 'PaidSubscriber'
+	| 'CommentModerator'
+	| 'AdminOnly';
+
 export type PersonalizationPublicSettings = {
 	Title: string;
 	MetaDescription: string;
@@ -8,13 +17,15 @@ export type PersonalizationPublicSettings = {
 
 export type PersonalizationPrivateSettings = {};
 
+export type SubscriptionTier = {
+	Name: string;
+	Description: string;
+	Color: string;
+	AmountCents: number;
+};
+
 export type SubscriptionPublicSettings = {
-	Tiers: {
-		Name: string;
-		Description: string;
-		Color: string;
-		AmountCents: number;
-	}[];
+	Tiers: SubscriptionTier[];
 	AllowOther: boolean;
 	MinimumAllowed: boolean;
 	MaximumAllowed: boolean;
@@ -43,7 +54,7 @@ export type SubscriptionPrivateSettings = {};
 
 export type CommentsPublicSettings = {
 	AllowLinks: boolean;
-	DefaultOrder: string;
+	DefaultOrder: CommentOrderEnum;
 	DefaultRestriction: {
 		Minimum: string;
 		Level: number;
@@ -77,7 +88,7 @@ export type NotificationPublicSettings = {};
 export type NotificationPrivateSettings = {};
 
 export type CMSPublicSettings = {
-	DefaultOrder: string;
+	DefaultOrder: ChannelLayoutEnum;
 	Channels: Channel[];
 	Categories: Category[];
 	Menu: {
