@@ -1,4 +1,4 @@
-import SubscriptionTierAccordion from '@/components/subscription/tiers/subscription-tier-accordion';
+import SubscriptionTierAccordion from '@/components/settings/subscription/tiers/subscription-tier-accordion';
 
 const tiers = [
 	{
